@@ -16,6 +16,6 @@ bool Course::addStudent(Student& student){ if(hasStudent(student)){ return false
 void Course::dropStudent(Student& student){ for(auto ii = students.begin(); ii != students.end(); ii++){ if((ii)->getId() == student.getId()){ students.erase(ii); break;}}}
 
 void Course::printDetails() const{
-    cout << "Course ID: " << id << ", Name: " << name << ", Credits: " << credits << "\nEnrolled Students: ";
-    for(const auto& ss : students){ cout << ss.getId() << " ";} cout << "\n";
+    cout << "Course ID: " << id << ", Name: " << name << ", Credits: " << credits << "\nEnrolled Students:";
+    for(const auto& ss : students){ cout << " " << ss.getId();} cout << "\n";
 }
