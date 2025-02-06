@@ -11,7 +11,7 @@ public:
 LMS(const std::string& name);
 void addStudent(Student student);
 void addCourse(Course course);
-void addStudentToCourse(int studentId, const std::string& courseId); //void addStudentToCourse(Student student, Course course);
+void addStudentToCourse(int studentId, int courseId); //void addStudentToCourse(Student student, Course course);
 void printDetails() const;
 };
 
