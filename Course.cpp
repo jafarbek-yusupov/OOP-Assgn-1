@@ -3,9 +3,9 @@
 #include <iostream>
 using namespace std;
 
-Course::Course(const string& id, const string& name, int credits) : id(id), name(name), credits(credits) {}
+Course::Course(int id, const string& name, int credits) : id(id), name(name), credits(credits) {}
 
-string Course::getId() const{ return id;}
+int Course::getId() const{ return id;}
 string Course::getName() const{ return name;}
 int Course::getCredits() const{ return credits;}
 
