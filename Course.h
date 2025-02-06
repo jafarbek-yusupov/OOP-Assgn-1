@@ -8,10 +8,10 @@ class Student;
 
 class Course{
 private:
-    std::string id; std::string name; int credits; std::vector<Student> students;
+    int id; std::string name; int credits; std::vector<Student> students;
 public:
-    Course(const std::string& id, const std::string& name, int credits);
-    std::string getId() const;
+    Course(int id, const std::string& name, int credits);
+    int getId() const;
     std::string getName() const;
     int getCredits() const;
 
