@@ -27,6 +27,6 @@ bool Student::dropCourse(const Course& course){
 }
 
 void Student::printDetails() const{
-    std::cout << "Student ID: " << id << ", Name: " << name << "\n" << "Enrolled Courses:\n";
+    std::cout << "Student ID: " << id << ", Name: " << name << "\nEnrolled Courses:\n";
     for(const Course* course : enrolledCourses){ std::cout << "  - " << course->getId() << ": " << course->getName() << " (" << course->getCredits() << " credits)\n";}
 }
