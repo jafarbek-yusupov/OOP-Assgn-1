@@ -6,13 +6,11 @@ using namespace std;
 LMS::LMS(const string& name) : name(name){}
 
 void LMS::addStudent(Student student){
-//    for(const auto& s : students){ if(s.getId() == student.getId()){ cout << "Student with ID " << student.getId() << " ALR EXISTSSSSSSSSS!!!\n"; /*check for dups*/ return;}} 
-	students.push_back(student);
+	for(const auto& s : students){ if(s.getId() == student.getId()){ cout << "Student with ID " << student.getId() << " ALR EXISTSSSSSSSSS!!!\n"; /*check for dups*/ return;}} students.push_back(student);
 }
 
 void LMS::addCourse(Course course){
-//    for(const auto& c : courses){ if(c.getId() == course.getId()){ cout << "Course with ID " << course.getId() << " ALR EXISTSSSSSSSSS!!!\n"; /*check for dups*/ return;}} 
-	courses.push_back(course);
+   for(const auto& c : courses){ if(c.getId() == course.getId()){ cout << "Course with ID " << course.getId() << " ALR EXISTSSSSSSSSS!!!\n"; /*check for dups*/ return;}}  courses.push_back(course);
 }
 
 void LMS::addStudentToCourse(int studentId, const string& courseId){
@@ -35,11 +33,11 @@ void LMS::printDetails() const{
 		cout << endl;
     }
 
-    cout << "Courses:" << endl;
-    for (const auto& course : courses) {
-        cout << "Course ID: " << course.getId() << ", Name: " << course.getName() << ", Credits: " << course.getCredits() << "\nEnrolled Students: ";
+    cout << "Courses:\n";
+    for (const auto& course : courses){
+        cout << "Course ID: " << course.getId() << ", Name: " << course.getName() << ", Credits: " << course.getCredits() << "\nEnrolled Students:";
         for(const auto& student : students){ 
-			if(course.hasStudent(student)){ cout << student.getId() << " ";}
+			if(course.hasStudent(student)){ cout << " " << student.getId();}
         }
         cout << endl;
     }
