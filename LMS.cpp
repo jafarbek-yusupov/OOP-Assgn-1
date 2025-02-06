@@ -6,7 +6,7 @@ using namespace std;
 LMS::LMS(const string& name) : name(name){}
 
 void LMS::addStudent(Student student){
-	for(const auto& s : students){ if(s.getId() == student.getId()){ cout << "Student with ID " << student.getId() << " ALR EXISTSSSSSSSSS!!!\n"; /*check for dups*/ return;}} students.push_back(student);
+  for(const auto& s : students){ if(s.getId() == student.getId()){ cout << "Student with ID " << student.getId() << " ALR EXISTSSSSSSSSS!!!\n"; /*check for dups*/ return;}} students.push_back(student);
 }
 
 void LMS::addCourse(Course course){
@@ -30,14 +30,14 @@ void LMS::printDetails() const{
         for(const auto& course : courses){
             if(course.hasStudent(student)){ cout << course.getId() << " ";}
         }
-		cout << endl;
+    cout << endl;
     }
 
     cout << "Courses:\n";
     for (const auto& course : courses){
         cout << "Course ID: " << course.getId() << ", Name: " << course.getName() << ", Credits: " << course.getCredits() << "\nEnrolled Students:";
         for(const auto& student : students){ 
-			if(course.hasStudent(student)){ cout << " " << student.getId();}
+      if(course.hasStudent(student)){ cout << " " << student.getId();}
         }
         cout << endl;
     }
