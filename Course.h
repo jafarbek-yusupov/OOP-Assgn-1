@@ -1,23 +1,25 @@
-#ifndef STUDENT_H
-#define STUDENT_H
+#ifndef COURSE_H
+#define COURSE_H
 #include <string>
 #include <vector>
+#include "Student.h"
 
-class Course;
+class Student;
 
-class Student{
+class Course{
 private:
-    int id; std::string name; std::vector<const Course*> enrolledCourses; static const int MAX_ALLOWED_CREDITS = 18;
+    std::string id; std::string name; int credits; std::vector<Student> students;
 public:
-    Student(int studentId, const std::string& studentName);
-    int getId() const;
+    Course(const std::string& id, const std::string& name, int credits);
+    std::string getId() const;
     std::string getName() const;
-    const std::vector<const Course*>& getEnrolledCourses() const;
-    bool takesCourse(const Course& course) const;
-    bool takeCourse(const Course& course);
-    bool dropCourse(const Course& course);
+    int getCredits() const;
+
+    bool hasStudent(const Student& student) const;
+    bool addStudent(Student& student);
+    
+    void dropStudent(Student& student);
     void printDetails() const;
-    bool operator==(const Student& other) const{ return id == other.id;}
 };
 
 #endif
