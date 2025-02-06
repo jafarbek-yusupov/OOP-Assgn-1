@@ -39,8 +39,7 @@ int main() {
     for(int i=0;i<n;i++){
         int student_id;
         string course_id;
-        cin>>student_id>>course_id;
-  		myLMS.addStudentToCourse(student_id, course_id);
+        cin>>student_id>>course_id; myLMS.addStudentToCourse(student_id, course_id);
     }
     // Print LMS details
     myLMS.printDetails();
