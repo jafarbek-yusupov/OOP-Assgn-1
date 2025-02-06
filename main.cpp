@@ -1,6 +1,6 @@
-// #include "Student.h"
-// #include "Course.h"
-// #include "LMS.h"
+//#include "Student.h"
+//#include "Course.h"
+//#include "LMS.h"
 #include "Student.cpp"
 #include "Course.cpp"
 #include "LMS.cpp"
@@ -27,8 +27,8 @@ int main() {
     int number_courses;
     cin>>number_courses;
     for(int i=0;i<number_courses;i++){
-        string id, name;
-        int credit;
+        string name;
+        int id, credit;
         cin>>id>>name>>credit;
         Course c1(id, name, credit);
         myLMS.addCourse(c1);
@@ -37,8 +37,7 @@ int main() {
     int n;
     cin >> n;
     for(int i=0;i<n;i++){
-        int student_id;
-        string course_id;
+        int student_id, course_id;
         cin>>student_id>>course_id; myLMS.addStudentToCourse(student_id, course_id);
     }
     // Print LMS details
