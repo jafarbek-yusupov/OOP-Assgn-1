@@ -24,15 +24,6 @@ void LMS::addStudentToCourse(int studentId, const string& courseId){
 }
 
 void LMS::printDetails() const{
-    cout << "LMS Name: " << name << "\nStudents:\n";
-    for(const auto& student : students){
-        cout << "Student ID: " << student.getId() << ", Name: " << student.getName() << "\nEnrolled Courses: ";
-        for(const auto& course : courses){ if(course.hasStudent(student)){ cout << course.getId() << " ";}} cout << "\n";
-    }
-
-    cout << "Courses:\n";
-    for(const auto& course : courses){
-        cout << "Course ID: " << course.getId() << ", Name: " << course.getName() << ", Credits: " << course.getCredits() << "\nEnrolled Students:";
-        for(const auto& student : students){ if(course.hasStudent(student)){ cout << " " << student.getId();}} cout << "\n";
-    }
+    cout << "LMS Name: " << name << "\nStudents:\n"; for(Student s: students){ s.printDetails();}
+  	cout << "Courses:\n"; for(Course i: courses){ i.printDetails();}
 }
