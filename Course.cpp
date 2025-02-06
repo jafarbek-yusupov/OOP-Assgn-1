@@ -1,32 +1,21 @@
-#include "Student.h"
 #include "Course.h"
+#include <algorithm>
 #include <iostream>
+using namespace std;
 
-Student::Student(int studentId, const std::string& studentName) : id(studentId), name(studentName) {}
+Course::Course(const string& id, const string& name, int credits) : id(id), name(name), credits(credits) {}
 
-int Student::getId() const{ return id;}
-std::string Student::getName() const{ return name;}
-const std::vector<const Course*>& Student::getEnrolledCourses() const{ return enrolledCourses;}
+string Course::getId() const{ return id;}
+string Course::getName() const{ return name;}
+int Course::getCredits() const{ return credits;}
 
-bool Student::takesCourse(const Course& course) const{
-    for(const Course* enrolledCourse : enrolledCourses){ if(enrolledCourse->getId() == course.getId()){ return true;}}
-    return false;
-}
+bool Course::hasStudent(const Student& student) const{ return find(students.begin(), students.end(), student) != students.end();}
 
-bool Student::takeCourse(const Course& course){
-    if(takesCourse(course)){ std::cout << "Student " << id << " is already enrolled in course " << course.getId() << std::endl; return false;}
-    int ttl = 0;
-    for(const Course* ii : enrolledCourses){ ttl += ii->getCredits();}
-    if(ttl+course.getCredits() > MAX_ALLOWED_CREDITS){ std::cout << "Student " << id << " cannot enroll in course " << course.getId() << " (credit limit exceeded)\n"; return false;} 
-    enrolledCourses.push_back(&course); return true;
-}
+bool Course::addStudent(Student& student){ if(hasStudent(student)){ return false;} students.push_back(student); return true;}
 
-bool Student::dropCourse(const Course& course){
-    for(auto ii = enrolledCourses.begin(); ii != enrolledCourses.end(); ii++){ if((*ii)->getId() == course.getId()){ enrolledCourses.erase(ii); return true;}}
-    return false;
-}
+void Course::dropStudent(Student& student){ for(auto ii = students.begin(); ii != students.end(); ii++){ if((ii)->getId() == student.getId()){ students.erase(ii); break;}}}
 
-void Student::printDetails() const{
-    std::cout << "Student ID: " << id << ", Name: " << name << "\nEnrolled Courses:\n";
-    for(const Course* course : enrolledCourses){ std::cout << "  - " << course->getId() << ": " << course->getName() << " (" << course->getCredits() << " credits)\n";}
+void Course::printDetails() const{
+    cout << "Course ID: " << id << ", Name: " << name << ", Credits: " << credits << "\nEnrolled Students: ";
+    for(const auto& ss : students){ cout << ss.getId() << " ";} cout << "\n";
 }
