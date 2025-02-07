@@ -1,8 +1,6 @@
-//#include "Student.h"
-//#include "Course.h"
-//#include "LMS.h"
-#include "Student.cpp"
-#include "Course.cpp"
+// #include "Student.h"
+// #include "Course.h"
+// #include "LMS.h"
 #include "LMS.cpp"
 
 #include <iostream>
