@@ -1,4 +1,5 @@
 #include "LMS.h"
+#include "Course.cpp"
 #include <iostream>
 #include <algorithm>
 using namespace std;
