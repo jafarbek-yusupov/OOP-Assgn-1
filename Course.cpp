@@ -1,4 +1,5 @@
 #include "Course.h"
+#include "Student.cpp"
 #include <algorithm>
 #include <iostream>
 using namespace std;
