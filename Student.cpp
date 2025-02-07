@@ -17,7 +17,7 @@ bool Student::takeCourse(const Course& course) {
     if(takesCourse(course)){ std::cout << "Student " << id << " is already enrolled in course " << course.getId() << std::endl; return false;}
     int ttl = 0;
     for(const Course* ii : enrolledCourses){ ttl += ii->getCredits();}
-    if(ttl+course.getCredits() > MAX_ALLOWED_CREDITS){ std::cout << "Student " << id << " cannot enroll in course " << course.getId() << " (credit limit exceeded)" << std::endl; return false;} 
+    if(ttl+course.getCredits() > MAX_ALLOWED_CREDITS){ std::cout << "Student " << id << " cannot enroll in course " << course.getId() << " (credit limit exceeded)\n"; return false;} 
     enrolledCourses.push_back(&course); return true;
 }
 
@@ -27,6 +27,6 @@ bool Student::dropCourse(const Course& course){
 }
 
 void Student::printDetails() const{
-    std::cout << "Student ID: " << id << ", Name: " << name << std::endl << "Enrolled Courses:" << std::endl;
-    for(const Course* course : enrolledCourses){ std::cout << "  - " << course->getId() << ": " << course->getName() << " (" << course->getCredits() << " credits)" << std::endl;}
+    std::cout << "Student ID: " << id << ", Name: " << name << "\nEnrolled Courses:\n";
+    for(const Course* course : enrolledCourses){ std::cout << "  - " << course->getId() << ": " << course->getName() << " (" << course->getCredits() << " credits)\n";}
 }
