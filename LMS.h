@@ -4,10 +4,17 @@
 #include <vector>
 #include "Student.h"
 #include "Course.h"
+#include "Student.cpp"
+#include "Course.cpp"
 
 class LMS{
 private: std::string name; std::vector<Student> students; std::vector<Course> courses;
-public: LMS(const std::string& name); void addStudent(Student student); void addCourse(Course course); void addStudentToCourse(int studentId, int courseId); void printDetails() const;
+public:
+LMS(const std::string& name);
+void addStudent(Student student);
+void addCourse(Course course);
+void addStudentToCourse(int studentId, int courseId); //void addStudentToCourse(Student student, Course course);
+void printDetails() const;
 };
 
 #endif
